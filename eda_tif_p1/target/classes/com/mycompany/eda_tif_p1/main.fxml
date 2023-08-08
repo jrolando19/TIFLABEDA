@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.eda_tif_p1.MainController">
+  <tabs>
+    <Tab fx:id="tabAlm" text="Almacenes">
+         <content>
+            <AnchorPane prefHeight="436.0" prefWidth="600.0">
+               <children>
+                  <Pane layoutY="14.0" prefHeight="56.0" prefWidth="600.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="19.0" text="Administracion de Almacenes" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
+                     </children>
+                  </Pane>
+                  <GridPane layoutY="70.0" prefHeight="138.0" prefWidth="560.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btnIngArchAlm" mnemonicParsing="false" onAction="#loadAlmacenes" text="Ingresar Almacen por Archivo" GridPane.columnIndex="1" />
+                        <Button fx:id="btnEliminarAlm" mnemonicParsing="false" text="Eliminar Almacen" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="btnIngManualAlm" mnemonicParsing="false" text="Ingresar Almacen Manualmente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label fx:id="lblBuscarProdAlm" text="Producto">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="cboxProd" prefWidth="150.0">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <Label text="Buscar Almacen por:" />
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="79.0" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label fx:id="lblBuscarProdAlm1" text="Nombre">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="txtNomAlm">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnBuscarAlm" mnemonicParsing="false" onAction="#buscarAlmacen" text=" Buscar" GridPane.rowIndex="3" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label fx:id="lblBuscarProdAlm11" text="Almacen">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="txtEliminarAlm">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <TableView fx:id="tblAlmacenes" layoutX="14.0" layoutY="186.0" prefHeight="169.0" prefWidth="575.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="220.0">
+                    <columns>
+                      <TableColumn fx:id="tblcolCodAlm" prefWidth="110.0" text="Codigo" />
+                      <TableColumn fx:id="tblcolNomAlm" prefWidth="144.0" text="Nombre" />
+                        <TableColumn fx:id="tblcolDirAlm" prefWidth="320.0" text="Direccion" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content></Tab>
+    <Tab fx:id="TabProd" text="Productos">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane prefHeight="56.0" prefWidth="600.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <Label fx:id="lblGesProduc" alignment="CENTER" contentDisplay="CENTER" layoutX="226.0" layoutY="19.0" text="Gestion de Productos" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <GridPane layoutY="56.0" prefHeight="149.0" prefWidth="560.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button fx:id="btnIngProducArch" mnemonicParsing="false" text="Ingresar Productos por Archivo" GridPane.columnIndex="1" />
+                        <Button fx:id="btnIngManualProd" mnemonicParsing="false" text="Ingresar Producto Manualmente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="btnGesProd" mnemonicParsing="false" text="Gestionar productos de Almacen" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Label fx:id="lblBuscarProdAlm121" text="Producto" />
+                              <TextField fx:id="txtEliminarProd">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label fx:id="lblBuscarProdAlm2" text="Almacen">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="cboxAlm" prefWidth="150.0">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <Label text="Buscar Productos de:" />
+                        <Button fx:id="btnEliminarProd" mnemonicParsing="false" text="Eliminar Producto Seleccionado" GridPane.rowIndex="3" />
+                        <Button fx:id="btnBuscar" mnemonicParsing="false" text="Buscar" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <TableView fx:id="tblProduc" prefHeight="169.0" prefWidth="575.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="220.0">
+                     <columns>
+                        <TableColumn fx:id="tblcolCodProd" prefWidth="110.0" text="Codigo" />
+                        <TableColumn fx:id="tblcolDesProd" prefWidth="144.0" text="Descripcion" />
+                        <TableColumn fx:id="tblcolStockProd" prefWidth="320.0" text="Stock" />
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
+         </content></Tab>
+      <Tab text="Rutas">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
